@@ -12,7 +12,7 @@ Repository for simple implementation of tabular reinforcement learning in grid w
 
 Before the training, we need to
 
-1. build environment, e.g. `env = Maze(15, 15, sparcity=1.3)`,
+1. build environment, e.g. `env = Maze(15, 15, sparseness=1.3)`,
 3. make agent, e.g. `agt = Agent(env, Policy_class=Softmax, Value_class=Value)`,
 5. set optimizer, e.g. `opt = REINFORCE(agt, eta_p=.5, eta_v=.5, gamma=.99)`.
 

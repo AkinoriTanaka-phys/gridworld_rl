@@ -398,8 +398,8 @@ class Maze(GridWorld):
         Size of y-axis.
     figsize : int
         Figsize of rendering.
-    sparcity : float > 0
-        If sparcity is small, the resultant maze is dense (difficult).
+    sparseness : float > 0
+        If sparseness is small, the resultant maze is dense (difficult).
         Taking 1.1 ~ 1.5 are recommended.
 
     See Also
@@ -407,7 +407,7 @@ class Maze(GridWorld):
     GridWorld : class
         For other attributes, see the help of parent: help(GridWorld)
     '''
-    def __init__(self, lx, ly, figsize=5, sparcity=1.5):
+    def __init__(self, lx, ly, figsize=5, sparseness=1.5):
         '''
         Parameters
         ----------
@@ -417,8 +417,8 @@ class Maze(GridWorld):
             Size of y-axis.
         figsize : int
             Figsize of rendering.
-        sparcity : float > 0
-            If sparcity is small, the resultant maze is dense (difficult).
+        sparseness : float > 0
+            If sparseness is small, the resultant maze is dense (difficult).
             Taking 1.1 ~ 1.5 are recommended.
 
         See Also
@@ -426,7 +426,7 @@ class Maze(GridWorld):
         GridWorld : class
             For other attributes, see the help of parent: help(GridWorld)
         '''
-        self.sparcity = sparcity
+        self.sparseness = sparseness
         super().__init__(lx, ly, figsize)
 
     def generate(self):
@@ -434,7 +434,7 @@ class Maze(GridWorld):
         Randomly generate the maze.
         '''
         x = np.random.randn(self.lx*self.ly).reshape(self.lx, self.ly)
-        y = (x < self.sparcity)*(x > -self.sparcity)
+        y = (x < self.sparseness)*(x > -self.sparseness)
         self.tile = y
         self.load_tile()
         
